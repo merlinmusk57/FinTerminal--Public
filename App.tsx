@@ -1,48 +1,20 @@
-import React, { useState } from 'react';
-import { Layout } from './components/Layout';
-import { Ingestion } from './components/Ingestion';
-import { DataQuery } from './components/DataQuery';
-import { Comparison } from './components/Comparison';
-import { NormalizationMap } from './components/NormalizationMap';
-import { AnalystChat } from './components/AnalystChat';
-import { Settings } from './components/Settings';
-import { DataProvider } from './contexts/DataContext';
-
-const AppContent: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('comparison');
-
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'ingestion':
-        return <Ingestion />;
-      case 'query':
-        return <DataQuery />;
-      case 'mapping':
-        return <NormalizationMap />;
-      case 'comparison':
-        return <Comparison />;
-      case 'analyst':
-        return <AnalystChat />;
-      case 'settings':
-        return <Settings />;
-      default:
-        return <Comparison />;
-    }
-  };
-
-  return (
-    <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
-      {renderContent()}
-    </Layout>
-  );
-};
+import React from 'react';
+// import { Layout } from './components/Layout'; // Comment out Layout
+// import { Ingestion } from './components/Ingestion'; // Comment out other components
+// ... and so on for all other imports ...
+// import { DataProvider } from './contexts/DataContext'; // Comment out DataProvider
 
 const App: React.FC = () => {
   return (
-    <DataProvider>
-      <AppContent />
-    </DataProvider>
+    // <DataProvider> // Comment out DataProvider
+      // <AppContent /> // Comment out AppContent
+      <div style={{ padding: '20px', color: 'white', backgroundColor: 'blue' }}>
+          VERCEL TEST SUCCESS: BASIC RENDER WORKS!
+      </div>
+    // </DataProvider>
   );
 };
+
+// const AppContent: React.FC = () => { ... } // Also comment out the AppContent declaration
 
 export default App;
