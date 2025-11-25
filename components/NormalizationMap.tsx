@@ -90,7 +90,7 @@ export const NormalizationMap: React.FC = () => {
                              <span className="text-xs bg-blue-900/30 text-blue-300 px-2 py-1 rounded border border-blue-800">Note 32 (Geo)</span>
                         </div>
                         <div className="h-px bg-gray-800 w-full my-2"></div>
-                        <div className="text-xs text-gray-400">Currency Conversion: USD/RMB -> HKD (Spot Rate)</div>
+                        <div className="text-xs text-gray-400">Currency Conversion: USD/RMB &gt; HKD (Spot Rate)</div>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@ export const NormalizationMap: React.FC = () => {
                             <ul className="list-disc pl-4 space-y-1">
                                 <li><b>Trade Finance:</b> Fully included.</li>
                                 <li><b>Cash Management:</b> Fully included.</li>
-                                <li>For SCB, we separate CCIB based on client turnover >$500m (mapped to Markets) vs &lt;$500m (mapped here) where breakdown available.</li>
+                                <li>For SCB, we separate CCIB based on client turnover &gt;$500m (mapped to Markets) vs</li>
                             </ul>
                         </td>
                     </tr>
