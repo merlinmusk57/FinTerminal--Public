@@ -5,6 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      // Add this line to ensure all asset paths are correct on Vercel
+      base: '/', 
       server: {
         port: 3000,
         host: '0.0.0.0',
