@@ -1,20 +1,48 @@
-import React from 'react';
-// import { Layout } from './components/Layout'; // Comment out Layout
-// import { Ingestion } from './components/Ingestion'; // Comment out other components
-// ... and so on for all other imports ...
-// import { DataProvider } from './contexts/DataContext'; // Comment out DataProvider
+import React, { useState } from 'react';
+import { Layout } from './components/Layout';
+import { Ingestion } from './components/Ingestion';
+import { DataQuery } from './components/DataQuery';
+import { Comparison } from './components/Comparison';
+import { NormalizationMap } from './components/NormalizationMap';
+import { AnalystChat } from './components/AnalystChat';
+import { Settings } from './components/Settings';
+import { DataProvider } from './contexts/DataContext';
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
+  const [activeTab, setActiveTab] = useState('comparison');
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'ingestion':
+        return <Ingestion />;
+      case 'query':
+        return <DataQuery />;
+      case 'mapping':
+        return <NormalizationMap />;
+      case 'comparison':
+        return <Comparison />;
+      case 'analyst':
+        return <AnalystChat />;
+      case 'settings':
+        return <Settings />;
+      default:
+        return <Comparison />;
+    }
+  };
+
   return (
-    // <DataProvider> // Comment out DataProvider
-      // <AppContent /> // Comment out AppContent
-      <div style={{ padding: '20px', color: 'white', backgroundColor: 'blue' }}>
-          VERCEL TEST SUCCESS: BASIC RENDER WORKS!
-      </div>
-    // </DataProvider>
+    <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+      {renderContent()}
+    </Layout>
   );
 };
 
-// const AppContent: React.FC = () => { ... } // Also comment out the AppContent declaration
+const App: React.FC = () => {
+  return (
+    <DataProvider>
+      <AppContent />
+    </DataProvider>
+  );
+};
 
 export default App;
